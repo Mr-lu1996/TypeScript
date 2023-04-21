@@ -23,7 +23,6 @@
             <el-menu-item v-for="item in list" :key="item.path" :index="item.path">
               <span>{{ item.meta.title }}</span>
             </el-menu-item>
-
           </el-menu>
         </el-aside>
         <el-container>

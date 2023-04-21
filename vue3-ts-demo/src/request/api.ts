@@ -8,6 +8,7 @@ interface loginData {
   password: string
 }
 
+// 登录
 export function login(data: loginData) {
   return service({
     url: "/login",
@@ -16,5 +17,29 @@ export function login(data: loginData) {
       username: data.username,
       password: data.password
     }
+  })
+}
+
+// 获取商品列表
+export function getGoodsList() {
+  return service({
+    url: "/getGoodsList",
+    method: "get"
+  })
+}
+
+// 获取用户列表
+export function getUserList() {
+  return service({
+    url: "/getUserList",
+    method: "get"
+  })
+}
+
+//  获取角色列表
+export function getRoleList() {
+  return service({
+    url: "/getRoleList",
+    method: "get"
   })
 }
