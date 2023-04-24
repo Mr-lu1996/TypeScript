@@ -10,13 +10,13 @@
             <h2>后台管理系统</h2>
           </el-col>
           <el-col :span="4">
-            <span class="exit">退出登录</span>
+            <el-button type="primary" @click="exit()">退出登录</el-button>
           </el-col>
         </el-row>
       </el-header>
       <el-container>
         <el-aside width="200px">
-          <el-menu active-text-color="#ffd04b" background-color="#545c64" class="el-menu-vertical-demo" default-active="2"
+          <el-menu active-text-color="#ffd04b" background-color="#545c64" class="el-menu-vertical-demo" :default-active="active"
             text-color="#fff" router>
             <!-- router开启路由模式，通过 el-menu-item index来进行跳转 -->
             <!-- 展示获取的菜单列表 -->
@@ -39,15 +39,22 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 
 export default defineComponent({
   name: 'HomeView',
   setup() {
     const router = useRouter()
+    const route = useRoute()
     // 通过对子路由进行筛选来动态展示菜单列表
     const list = router.getRoutes().filter(r => r.meta.isShow)
-    return {list}
+
+    const exit = ()=> {
+      localStorage.removeItem('token')
+      router.push('/login')
+    }
+
+    return {list, active: route.path, exit}
   }
 });
 </script>

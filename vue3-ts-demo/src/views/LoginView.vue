@@ -24,6 +24,7 @@ import { LoginData } from '../type/login'
 import type { FormInstance } from 'element-plus'
 import { login } from '../request/api'
 import { useRouter } from 'vue-router'
+import axios from 'axios'
 
 
 export default defineComponent({
@@ -67,12 +68,22 @@ export default defineComponent({
       formEl.validate((valid) => {
         if (valid) {
           // 验证成功
-          login(data.ruleForm).then(res => {
+          axios({
+            url: 'https://www.fastmock.site/mock/a35341c17ca29fe899ac2cd286eff4bf/management/login',
+            method: 'post',
+            data: data.ruleForm
+          }).then(res => {
             // 登录成功,保存token
             localStorage.setItem('token', res.data.token)
             // 跳转页面-首页
             router.push('/')
-          }, err => console.log(err))
+          }).catch(err => console.log(err))
+          // login(data.ruleForm).then(res => {
+          //   // 登录成功,保存token
+          //   localStorage.setItem('token', res.data.token)
+          //   // 跳转页面-首页
+          //   router.push('/')
+          // }, err => console.log(err))
         } else {
           console.log('error submit!')
           return false

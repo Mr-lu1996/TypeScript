@@ -13,10 +13,7 @@ export function login(data: loginData) {
   return service({
     url: "/login",
     method: "post",
-    data: {
-      username: data.username,
-      password: data.password
-    }
+    data
   })
 }
 
@@ -40,6 +37,14 @@ export function getUserList() {
 export function getRoleList() {
   return service({
     url: "/getRoleList",
+    method: "get"
+  })
+}
+
+//  获取权限列表
+export function getAuthorityList() {
+  return service({
+    url: "/getAuthorityList",
     method: "get"
   })
 }

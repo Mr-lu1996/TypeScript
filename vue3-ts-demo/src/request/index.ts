@@ -6,8 +6,8 @@ import axios from 'axios'
 
 // 创建axios实例
 const service = axios.create({
-  // baseURL: "https://www.fastmock.site/mock/bf1fcb3c2e2945669c2c8d0ecb8009b8/api",
-  baseURL: "https://www.fastmock.site/mock/a35341c17ca29fe899ac2cd286eff4bf/management",
+  baseURL: "https://www.fastmock.site/mock/bf1fcb3c2e2945669c2c8d0ecb8009b8/api",
+  // baseURL: "https://www.fastmock.site/mock/a35341c17ca29fe899ac2cd286eff4bf/management",
   timeout: 5000,
   headers: {
     "Content-Type": "application/json;charset:utf-8"
