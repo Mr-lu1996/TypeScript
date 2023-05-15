@@ -1,6 +1,7 @@
 <template>
   <div class="login-box">
     <el-form ref="ruleFormRef"  status-icon label-width="80px" class="demo-ruleForm">
+      <img src="../assets/cqupt.png" alt="">
       <h2>基于深度学习的对抗文本生成模型研究</h2>
       <span>请输入一段文本</span>
       <el-input
@@ -140,6 +141,14 @@ export default defineComponent({
   @keyframes move {
     from {top:100px;opacity:100;}
     to {top:0px;opacity:0;}
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 360px;
+    top: 115px;
   }
 }
 </style>
